@@ -28,7 +28,7 @@ void lvgl_task_creat(void)
         configMAX_PRIORITIES - 1,
         &handleTaskLvgl))
     {
-        Serial.println("Lvgl task create success!");
+        Serial.println("Lvgl update task create success!");
     }
     else
     {
