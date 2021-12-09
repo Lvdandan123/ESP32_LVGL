@@ -1,5 +1,6 @@
 #include "HAL/HAL.h"
 #include "App/Utils/ButtonEvent/ButtonEvent.h"
+#include <Arduino.h>
 
 /* 定义一个ButtonEvent静态对象 */
 static ButtonEvent EncoderPush(5000);
@@ -98,6 +99,9 @@ void HAL::Encoder_Init()
     // actEncoder = new Account("Encoder", AccountSystem::Broker(), sizeof(int16_t), nullptr);
 }
 
+/**
+ * @brief   需要循环执行
+ */
 void HAL::Encoder_Update()
 {
     EncoderPush.EventMonitor(Encoder_GetIsPush());

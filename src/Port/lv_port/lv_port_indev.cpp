@@ -54,15 +54,20 @@ void lv_port_indev_init(void)
 static void encoder_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
 {
     data->enc_diff = HAL::Encoder_GetDiff();  //自上次读数以来的步数增减
-
     data->state = HAL::Encoder_GetIsPush() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+    // data->enc_diff = encoder_diff;
+    // data->state = encoder_state;
 }
 
 /*Call this function in an interrupt to process encoder events (turn, press)*/
-// static void encoder_handler(void)
+// void encoder_handler(void)
 // {
-//     encoder_diff += 0;
-//     encoder_state = LV_INDEV_STATE_REL;
+//     static uint8_t state = 0;
+
+//     state = !state;
+
+//     encoder_diff += 1;
+//     encoder_state = (state ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL);
 // }
 
 #else /*Enable this file at the top*/

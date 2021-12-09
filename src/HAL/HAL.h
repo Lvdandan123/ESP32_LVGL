@@ -10,8 +10,8 @@
 
 namespace HAL
 {
-//     void Init();
-//     void Update();
+    void Init();
+    void Update();
 
 // /* Backlight */
 //     void Backlight_Init();

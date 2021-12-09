@@ -39,6 +39,9 @@ void lv_port_disp_init(SCREEN_CLASS* scr);
 void lv_port_indev_init();
 void lvgl_task_creat(void);
 
+extern lv_indev_t * indev_encoder;
+// void encoder_handler(void);
+
 // void Port_Init();
 // void DisplayFault_Init(SCREEN_CLASS* scr);
 // void lv_fs_if_init();
