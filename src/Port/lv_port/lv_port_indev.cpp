@@ -12,16 +12,16 @@
 #include "../Display.h"
 #include "HAL/HAL.h"
 
-static void encoder_init(void);
+// static void encoder_init(void);
 static void encoder_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data);
-static void encoder_handler(void);
+// static void encoder_handler(void);
 
 /**********************
  *  STATIC VARIABLES
  **********************/
 lv_indev_t * indev_encoder;
-static int32_t encoder_diff;
-static lv_indev_state_t encoder_state;
+// static int32_t encoder_diff;
+// static lv_indev_state_t encoder_state;
 
 
 /**********************
@@ -29,14 +29,11 @@ static lv_indev_state_t encoder_state;
  **********************/
 void lv_port_indev_init(void)
 {
-    static lv_indev_drv_t indev_drv;
-
     /*------------------
      * Encoder
      * -----------------*/
 
-    /*Initialize your encoder if you have*/
-    encoder_init();
+    static lv_indev_drv_t indev_drv;
 
     /*Register a encoder input device*/
     lv_indev_drv_init(&indev_drv);
@@ -53,32 +50,20 @@ void lv_port_indev_init(void)
 /**********************
  *   STATIC FUNCTIONS
  **********************/
-/*------------------
- * Encoder
- * -----------------*/
-
-/*Initialize your keypad*/
-static void encoder_init(void)
-{
-    /*Your code comes here*/
-}
-
 /*Will be called by the library to read the encoder*/
 static void encoder_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
 {
-    data->enc_diff = encoder_diff;
+    data->enc_diff = HAL::Encoder_GetDiff();  //自上次读数以来的步数增减
 
     data->state = HAL::Encoder_GetIsPush() ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
 }
 
 /*Call this function in an interrupt to process encoder events (turn, press)*/
-static void encoder_handler(void)
-{
-    /*Your code comes here*/
-
-    encoder_diff += 0;
-    encoder_state = LV_INDEV_STATE_REL;
-}
+// static void encoder_handler(void)
+// {
+//     encoder_diff += 0;
+//     encoder_state = LV_INDEV_STATE_REL;
+// }
 
 #else /*Enable this file at the top*/
 

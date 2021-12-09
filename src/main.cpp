@@ -56,6 +56,7 @@ void setup() {
     
     /* SD 卡初始化 */
     // HAL::SD_Init();
+    
     /* Encoder 初始化 */
     HAL::Encoder_Init();
     

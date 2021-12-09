@@ -4,5 +4,12 @@
 			"path": ".."
 		}
     ],
-    "settings": {}
+    "settings": {
+        "files.associations": {
+            "*.h": "c",
+            "*.lds": "c",
+            "*.inc": "cpp"
+        },
+        "files.autoGuessEncoding": true
+    }
 }
